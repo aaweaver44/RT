@@ -18,6 +18,7 @@ err = pygame.image.load('error.png')
 black = (0, 0, 0)  # color codes for later use
 white = (255, 255, 255)
 grey = (127, 127, 127)
+uniqueID = 0
 
 
 # Draw content to center of screen (currently just text only)
@@ -121,7 +122,8 @@ def block(training=False):
         wipe()
 
         if not training:  # if this is not a training block
-            uniqueID = time.time_ns()
+            #uniqueID = time.time_ns()
+            global uniqueID += 1
             log[(trial['filename'], trial['catch'], uniqueID)] = reaction_time  # create a log: "150l.wav, False: 400"
         time.sleep(2 + random.uniform(0.0, 2.0))  # sleep for inter-trial interval 
 
